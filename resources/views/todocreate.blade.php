@@ -30,6 +30,10 @@
         {!! Form::submit('Submit') !!}
     {!! Form::close() !!}
     <br><br>
+
+    <div class="text-danger">{{$errors->first('title')}}
+    </div>
+
     <button onclick="location.href='{{route('todolist.index')}}'">Back to Index</button>
 
 </body>

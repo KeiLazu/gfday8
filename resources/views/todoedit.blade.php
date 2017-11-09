@@ -16,6 +16,7 @@
         {{method_field('PUT')}}
         
         {!! Form::label('title', 'Title:') !!}
+        <div class="text text-danger">{{$errors->first('title')}}</div>
         <br>
         {!! Form::text('title', $detailData->title) !!}
         <br><br>

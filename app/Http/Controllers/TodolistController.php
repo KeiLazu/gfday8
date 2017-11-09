@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\todolist;
 use Illuminate\Http\Request;
+use App\Http\Requests\TodolistRequest;
 
 class TodolistController extends Controller
 {
@@ -34,13 +35,13 @@ class TodolistController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TodolistRequest $request)
     {
         
         // $insertTodolist->title = $request->titletodolist;
         // $insertTodolist->container = $request->containertodolist;
         // $insertTodolist->status = $request->statustodolist;
-        // dd($request->all());
+        dd($request->all());
         todolist::create($request->all());
         // $insertTodolist->save();
         return redirect()->route('todolist.index');
@@ -81,7 +82,7 @@ class TodolistController extends Controller
      * @param  \App\todolist  $todolist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, todolist $todolist)
+    public function update(TodolistRequest $request, todolist $todolist)
     {
         $todolisting = todolist::find($todolist)->first()->update($request->all());
         return redirect()->route('todolist.index');
